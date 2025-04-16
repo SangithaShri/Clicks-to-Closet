@@ -103,22 +103,25 @@ const Product = () => {
               </p>
               <h3 className="display-6  my-4">Rs. {dynamicPrice}</h3> 
               <p className="lead">{product.description}</p>
-              <p>
-              <button className="btn btn-outline-dark"
-              onClick={() => window.location.href = "https://huggingface.co/spaces/JKKCE/Virtual-Try-On_with_AI"}
-              >
-              Try - on</button>
-              </p>
+              {(product.category === "men's clothing" || product.category === "women's clothing") && (
+                <p>
+                  <button
+                    className="btn btn-outline-dark"
+                    onClick={() =>
+                      window.location.href =
+                        "https://huggingface.co/spaces/JKKCE/Virtual-Try-On_with_AI"
+                    }
+                  >
+                    Try - on
+                  </button>
+                </p>
+              )}
               <button
                 className="btn btn-outline-dark"
                 onClick={() => addProduct(product)}
               >
                 Add to Cart
               </button>
-              
-              {/* <Link to="/cart" className="btn btn-dark mx-3">
-                Go to Cart
-              </Link> */}
             </div>
           </div>
         </div>
